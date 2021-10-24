@@ -1,0 +1,26 @@
+{
+
+  "manifest_version": 2,
+  "name": "Interacting",
+  "version": "1.0",
+  "description": "This just will integrate de browset api, dev tool",
+  "permissions": [
+    "tabs",
+    "clipboardWrite",
+    "storage",
+    "contextMenus",
+    "nativeMessaging",
+    "webRequest",
+    "notifications",
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_icon": "icons/border-48.png",
+    "default_title": "Go to Dev!"
+  },
+  "devtools_page": "devtools/devtools-page.html",
+  "background": {
+   "scripts": ["index.js"]
+  }
+
+}
