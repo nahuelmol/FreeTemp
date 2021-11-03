@@ -1,0 +1,2 @@
+log file will save changes: null
+Cannot be deleted: C:\Users\Alumno\AppData\Local\Temp\FXSAPIDebugLogFile.txt

@@ -1,4 +1,7 @@
 const { LookinTemp, DeleteTempContent } = require('./content/look_content')
+const { exec } = require('child_process')
+const { AddToLog } = require('./content/LogEnviron')
+const fs = require('fs')
 
 function Main(){
 	var onResponse = res => {
@@ -20,12 +23,20 @@ function Main(){
 
 			console.log('URIs: ', res)
 		}
-
 		DeleteTempContent(res, resHandler)
 	}
-
 	LookinTemp(onResponse)
+
 }
+
+		
+exec('mkdir logs', (err,dout,derr) => {
+	var data = 'log file will save changes: ' + module.parent
+	
+	fs.writeFile('logs/log.txt', data, err => {
+		if (err) throw err
+	})
+})
 
 if(module.parent === null){
 	Main()

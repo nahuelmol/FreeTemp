@@ -1,6 +1,7 @@
 const { exec } = require('child_process')
 const os 	= require('os')
 const { isString, isMyArray } = require('./checkType')
+const { AddToLog } = require('./LogEnviron')
 
 var TEMP_DIR = os.tmpdir()
 
@@ -48,7 +49,9 @@ var DeleteTempContent = (CONTENT, resHandler) => {
 
 			if(out !== ''){
 				out = out.replace(/\r?\n|\r/g, '')
-				console.log(out + ' file cannot be deleted')
+				var msg = '\nCannot be deleted: '+out
+
+				AddToLog(msg)
 			}
 		})
 

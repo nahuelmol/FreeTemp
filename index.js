@@ -7,6 +7,7 @@ chrome.browserAction.onClicked.addListener(function() {
 		active: true
 	}, function(alltab) {
 		PORT = chrome.runtime.connectNative('FreeTemp')
+		console.log(PORT)
 	});
 });
 

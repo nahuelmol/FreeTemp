@@ -1,6 +1,6 @@
 {
-    "name": "com.add0n.node",
+    "name": "FreeTemp",
     "description": "Node Host for Native Messaging",
     "path": "run.bat",
     "type": "stdio",
-    "allowed_extensions": []}
+    "allowed_extensions": ["d2c87adea13bd69bdf8080d9025e121eafb00e45@temporary-addon"]}
