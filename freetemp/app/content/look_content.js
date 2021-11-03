@@ -2,7 +2,6 @@ const { exec } = require('child_process')
 const os 	= require('os')
 const { isString, isMyArray } = require('./checkType')
 
-
 var TEMP_DIR = os.tmpdir()
 
 var get_filename = (arr, FileHandler) => {
