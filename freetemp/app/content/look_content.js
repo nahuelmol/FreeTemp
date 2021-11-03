@@ -49,10 +49,13 @@ var DeleteTempContent = (CONTENT, resHandler) => {
 
 			if(out !== ''){
 				out = out.replace(/\r?\n|\r/g, '')
-				var msg = '\nCannot be deleted: '+out
+				var msg = '\ncannot be deleted: '+out
 
 				AddToLog(msg)
+			}else{
+				AddToLog('\nwas deleted: ', each)
 			}
+			
 		})
 
 		exec(`rmdir ${each} \s`, (err, out, din) => {
@@ -60,7 +63,8 @@ var DeleteTempContent = (CONTENT, resHandler) => {
 				return 'There is an error'
 			}
 
-			console.log('DIRS OUT: ', out)
+			var dirs = 'DIRS deleted: ', out
+			AddToLog(dirs)
 		})
 	}
 
