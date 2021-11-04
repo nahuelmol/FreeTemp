@@ -1,4 +1,7 @@
 log file will save changes: null
+dir:C:\Users\Alumno\AppData\Local\Temp\cas
 file:C:\Users\Alumno\AppData\Local\Temp\FXSAPIDebugLogFile.txt
-dir:C:\Users\Alumno\AppData\Local\Temp\jna-1964228900
-cannot be deleted: FXSAPIDebugLogFile.txtDIRS deleted: 
+file:C:\Users\Alumno\AppData\Local\Temp\moko.txt
+DIR deleted: cas
+cannot be deleted: FXSAPIDebugLogFile.txt
+was deleted: moko.txt

@@ -16,7 +16,7 @@ const DeleteFile = path => {
 
 				AddToLog(msg)
 			}else{
-				var msg = '\nwas deleted: '+ name
+				var msg = '\nFile deleted: '+ name
 				AddToLog(msg)
 			}
 		})
@@ -24,11 +24,14 @@ const DeleteFile = path => {
 
 const DeleteDir = path => {
 	exec(`rmdir ${path} /s /q`, (err, out, din) => {
+		var name = path.split('\\').slice(-1)
+
 		if(err){
 			AddToLog(`\n${err}\n`)
+			return 'There is an error: '+err
 		}
 
-		var dirs = 'DIRS deleted: ', out
+		var dirs = '\nDIR deleted: '+ name
 		AddToLog(dirs)
 	})
 }
