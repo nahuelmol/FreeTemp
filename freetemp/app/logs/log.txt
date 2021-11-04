@@ -1,2 +1,4 @@
-log file will save changes: nullC:\Users\Alumno\AppData\Local\Temp\vacia was deleted
-Cannot be deleted: C:\Users\Alumno\AppData\Local\Temp\FXSAPIDebugLogFile.txt
+log file will save changes: null
+file:C:\Users\Alumno\AppData\Local\Temp\FXSAPIDebugLogFile.txt
+dir:C:\Users\Alumno\AppData\Local\Temp\jna-1964228900
+cannot be deleted: FXSAPIDebugLogFile.txtDIRS deleted: 

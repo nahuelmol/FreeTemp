@@ -1,5 +1,8 @@
 const { exec } = require('child_process')
+const fs = require('fs')
 const os 	= require('os')
+
+const { DeleteFile, DeleteDir } = require('./Delete')
 const { isString, isMyArray } = require('./checkType')
 const { AddToLog } = require('./LogEnviron')
 
@@ -41,31 +44,19 @@ var DeleteTempContent = (CONTENT, resHandler) => {
 	}
 
 	for(each of URIS){
-		exec(`del ${each}`, (err, out, din) => {
-			var i = 0;
-			if(err != undefined){
-				return 'There is an error'
-			}
 
-			if(out !== ''){
-				out = out.replace(/\r?\n|\r/g, '')
-				var msg = '\ncannot be deleted: '+out
+		var stat = fs.statSync(each)
 
-				AddToLog(msg)
-			}else{
-				AddToLog('\nwas deleted: ', each)
-			}
-			
-		})
+		if(stat.isFile()){
+			AddToLog(`\nfile:${each}`)
+			DeleteFile(each)
+		}
 
-		exec(`rmdir ${each} \s`, (err, out, din) => {
-			if(err != undefined){
-				return 'There is an error'
-			}
+		if(stat.isDirectory()){
+			AddToLog(`\ndir:${each}`)
+			DeleteDir(each)
+		}
 
-			var dirs = 'DIRS deleted: ', out
-			AddToLog(dirs)
-		})
 	}
 
 	resHandler(URIS)
