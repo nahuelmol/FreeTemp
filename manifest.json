@@ -20,7 +20,7 @@
   },
   "devtools_page": "devtools/devtools-page.html",
   "background": {
-   "scripts": ["index.js"]
+   "scripts": ["back/index.js","back/listener.js"]
   }
 
 }

@@ -7,6 +7,10 @@ const { isString, isMyArray } = require('./checkType')
 const { AddToLog } = require('./LogEnviron')
 
 var TEMP_DIR = os.tmpdir()
+var HOME_DIR = os.homedir()
+
+var NPM_CACHE_DIR = HOME_DIR + '/AppData/Roaming/npm-cache'
+var PIP_CACHE_DIR = HOME_DIR + '/AppData/Local/pip/cache'
 
 var get_filename = (arr, FileHandler) => {
 
@@ -60,6 +64,27 @@ var DeleteTempContent = (CONTENT, resHandler) => {
 	}
 
 	resHandler(URIS)
+}
+
+var LookinNPM = call => {
+	var RESPONSE = []
+	var DIR_CONT = []
+
+	exec(`dir ${NPM_CACHE_DIR}`, (err, dout, derr) => {
+		if(err){
+			return `There is an error: ${err}`
+		}
+
+		RESPONSE = dout.split('\n')
+
+		for (each in RESPONSE){
+			if (each > 4){
+				DIR_CONTENT.push(RESPONSE[each]) 
+			}
+		}
+		
+		call(DIR_CONTENT)
+	})
 }
 
 var LookinTemp = (call) => {
