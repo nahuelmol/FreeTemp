@@ -3,6 +3,12 @@ var LISTED_COOKIES = ''
 browser.runtime.onMessage.addListener(
   	(data, sender, sendResponse) => {
 
+      if(data.type == 'delete_cookies'){
+        for(let each of LISTED_COOKIES){
+          browser.cookies.remove(each)
+        }
+      }
+
   		if(data.type == 'ask_cookies'){
 
         var handler = cookiesStore => {

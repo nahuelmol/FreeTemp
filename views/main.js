@@ -16,3 +16,14 @@
 	})
 
 })();
+
+var onDelete = _ => {
+	var REQUEST = {
+	      type: 'delete_cookies',
+	   }
+	
+	var arrayData = browser.runtime.sendMessage(REQUEST);
+	arrayData.then(res => console.log(res.msg))
+}
+
+document.getElementById('clean_cookies').addEventListener(onDelete)
